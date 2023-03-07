@@ -18,3 +18,11 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+
+
+
+
+
+def setting(request):
+    
+    return render(request,'homes/setting.html')

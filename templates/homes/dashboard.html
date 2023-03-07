@@ -79,9 +79,9 @@
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i>Созламалар</a></li>
+            <li><a class="dropdown-item" href="{% url 'setting' %}"><i class="fa fa-cog fa-lg"></i>Созламалар</a></li>
             <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i>КАБИНЕТ</a></li>
-            <li><a class="dropdown-item" href=""><i class="fa fa-sign-out fa-lg"></i>Чикиш..</a></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-sign-out fa-lg"></i>Чикиш..</a></li>
           </ul>
         </li>
       </ul>
@@ -90,7 +90,7 @@
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
       <!--------------------------------------------------------------------------------------------------------------------------->
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="" alt="User Image">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{request.user.profile.pic_thumbnail.url}}" alt="User Image">
         <div>
           <p class="app-sidebar__user-name">{{user.first_name}}
           <p class="app-sidebar__user-designation">{{user.last_name}}</p>
