@@ -1,6 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from .form import ProfileForm
+from .models import*
+
 # Create your views here.
 
 def loginPage(request):
@@ -24,5 +27,14 @@ def logoutUser(request):
 
 
 def setting(request):
+    profile=Profile.objects.get(id=request.user.profile.id)
     
-    return render(request,'homes/setting.html')
+    form=ProfileForm(instance=profile)
+    if request.method == 'POST':
+        form=ProfileForm(request.POST,instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect("setting")
+    
+    context={"form":form}
+    return render(request,'homes/setting.html',context)

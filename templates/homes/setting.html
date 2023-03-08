@@ -1,50 +1,152 @@
 {% extends 'homes/dashboard.html' %}
 {% block content %}
-<div class="container bootstrap snippets bootdey">
-    <h1 class="text-primary">Edit Profile</h1>
-      <hr>
-	<div class="row">
-      <!-- left column -->
-      <div class="col-md-3">
-        <div class="text-center">
-          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="avatar img-circle img-thumbnail mt-5" alt="avatar">
-          <h6 class="pt-1">Upload a different photo...</h6>
-        </div>
-      </div>
+<main class="app-content">
+  <div class="app-title">
+  
+    <div class="container">
+      <div class="row flex-lg-nowrap">
+        <div class="col">
+          <div class="row">
+            <div class="col mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="e-profile">
+                    <div class="row">
+                      <div class="col-12 col-sm-auto mb-3">
+                        <div class="mx-auto" style="width: 140px;">
+                        <img src="{{request.user.profile.pic_thumbnail.url}}" alt="">  
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                        <div class="text-center text-sm-left mb-2 mb-sm-0">
+                          <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">John Smith</h4>
+                          <p class="mb-0">@johnny.s</p>
+                          <div class="text-muted"><small>Last seen 2 hours ago</small></div>
+                          <div class="mt-2">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                              <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                            </div>
+                            
+                          </div>
+                        </div>
+                        <div class="text-center text-sm-right">
+                          <span class="badge badge-secondary">administrator</span>
+                          <div class="text-muted"><small>Joined 09 Dec 2017</small></div>
+                        </div>
+                      </div>
+                    </div>
+                    <ul class="nav nav-tabs">
+                      <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
+                    </ul>
+                    <div class="tab-content pt-3">
+                      <div class="tab-pane active">
+                        <form class="form" novalidate="">
+                          <div class="row">
+                            <div class="col">
+                              <div class="row">
+                                <div class="col">
+                                  <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input class="form-control" type="text" name="name" placeholder="John Smith" value="John Smith">
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="form-group">
+                                    <label>Username</label>
+                                    <input class="form-control" type="text" name="username" placeholder="johnny.s" value="johnny.s">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <div class="form-group">
+                                    <label>Email</label>
+                                    <input class="form-control" type="text" placeholder="user@example.com">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col mb-3">
+                                  <div class="form-group">
+                                    <label>About</label>
+                                    <textarea class="form-control" rows="5" placeholder="My Bio"></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12 col-sm-6 mb-3">
+                              <div class="mb-2"><b>Change Password</b></div>
+                              <div class="row">
+                                <div class="col">
+                                  <div class="form-group">
+                                    <label>Current Password</label>
+                                    <input class="form-control" type="password" placeholder="••••••">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <div class="form-group">
+                                    <label>New Password</label>
+                                    <input class="form-control" type="password" placeholder="••••••">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <div class="form-group">
+                                    <label>Confirm <span class="d-none d-xl-inline">Password</span></label>
+                                    <input class="form-control" type="password" placeholder="••••••"></div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12 col-sm-5 offset-sm-1 mb-3">
+                              <div class="mb-2"><b>Keeping in Touch</b></div>
+                              <div class="row">
+                                <div class="col">
+                                  <label>Email Notifications</label>
+                                  <div class="custom-controls-stacked px-2">
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input" id="notifications-blog" checked="">
+                                      <label class="custom-control-label" for="notifications-blog">Blog posts</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input" id="notifications-news" checked="">
+                                      <label class="custom-control-label" for="notifications-news">Newsletter</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input" id="notifications-offers" checked="">
+                                      <label class="custom-control-label" for="notifications-offers">Personal Offers</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col d-flex justify-content-end">
+                              <button class="btn btn-primary" type="submit">Save Changes</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+          </div>
       
-      <!-- edit form column -->
-      <div class="col-md-9 personal-info">
-        <h3>Personal info</h3>
-        
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">First name:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Last name:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Company:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="AGROMAX MCHJ" disabled>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="janesemail@gmail.com">
-            </div>
-          </div>
         </div>
-        </form>
       </div>
-  </div>
-</div>
-<hr>
+      </div>
+     
+  </div>  
+</main>
 {% endblock %}
