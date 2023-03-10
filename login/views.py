@@ -27,14 +27,15 @@ def logoutUser(request):
 
 
 def setting(request):
-    profile=Profile.objects.get(id=request.user.profile.id)
-    
+    user=request.user.profile.id
+    profile=Profile.objects.get(id=user)
     form=ProfileForm(instance=profile)
-    if request.method == 'POST':
-        form=ProfileForm(request.POST,instance=profile)
+    if request.method == "POST":
+        form=ProfileForm(request.POST,request.FILES,instance=profile)
+        print(form)
         if form.is_valid():
             form.save()
-            return redirect("setting")
+            return redirect('setting')
     
     context={"form":form,"profile":profile}
     return render(request,'homes/setting.html',context)

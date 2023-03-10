@@ -11,9 +11,12 @@ class ProfileForm(forms.ModelForm):
     
     class Meta:
         model=Profile
-        fields=('firs_name','last_name','pic')
+        fields=('pic','firs_name','last_name')
         widgets={
             'firs_name':forms.TextInput(attrs={'type':'text','class':"form-control"}),
             'last_name':forms.TextInput(attrs={'type':'text','class':"form-control"}),
-            'pic':forms.TextInput(attrs={'type':'file','class':"inputs"}),
+            
         }
+        def clean_pic(self):
+            photo=self.clean_data.get("pic")
+            return photo
