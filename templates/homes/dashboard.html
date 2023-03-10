@@ -90,10 +90,10 @@
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
       <!--------------------------------------------------------------------------------------------------------------------------->
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{request.user.profile.pic_thumbnail.url}}" alt="User Image">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar ui mini image " src="{{request.user.profile.pic.url}}" alt="User Image">
         <div>
-          <p class="app-sidebar__user-name">{{user.first_name}}
-          <p class="app-sidebar__user-designation">{{user.last_name}}</p>
+          <p class="app-sidebar__user-name">{{user.profile.firs_name}}
+          <p class="app-sidebar__user-designation">{{user.profile.last_name}}</p>
         </div>
       </div>
 

@@ -6,7 +6,7 @@ from .models import*
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('id','user','shtat','pic_thumbnail')
+    list_display = ('id','user','shtat')
 
 
 
