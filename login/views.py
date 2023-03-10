@@ -36,5 +36,5 @@ def setting(request):
             form.save()
             return redirect("setting")
     
-    context={"form":form}
+    context={"form":form,"profile":profile}
     return render(request,'homes/setting.html',context)
