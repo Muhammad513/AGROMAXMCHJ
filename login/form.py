@@ -15,7 +15,6 @@ class ProfileForm(forms.ModelForm):
         widgets={
             'firs_name':forms.TextInput(attrs={'type':'text','class':"form-control"}),
             'last_name':forms.TextInput(attrs={'type':'text','class':"form-control"}),
-            
         }
         def clean_pic(self):
             photo=self.clean_data.get("pic")
