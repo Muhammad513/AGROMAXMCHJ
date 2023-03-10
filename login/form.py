@@ -15,5 +15,5 @@ class ProfileForm(forms.ModelForm):
         widgets={
             'firs_name':forms.TextInput(attrs={'type':'text','class':"form-control"}),
             'last_name':forms.TextInput(attrs={'type':'text','class':"form-control"}),
-            'pic':forms.TextInput(attrs={'type':'file','class':"account-settings-fileinput"}),
+            'pic':forms.TextInput(attrs={'type':'file','class':"inputs"}),
         }
