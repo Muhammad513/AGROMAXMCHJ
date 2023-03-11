@@ -19,3 +19,13 @@ class ProfileForm(forms.ModelForm):
         def clean_pic(self):
             photo=self.clean_data.get("pic")
             return photo
+
+
+class ExempleForm(forms.ModelForm):
+
+
+    class Meta:
+        model=Exemple
+        fields='__all__'
+
+

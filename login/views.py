@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from .form import ProfileForm
+from .form import ProfileForm,ExempleForm
 from .models import*
-
+from django.forms import inlineformset_factory
 # Create your views here.
 
 def loginPage(request):
@@ -39,3 +39,28 @@ def setting(request):
     
     context={"form":form,"profile":profile}
     return render(request,'homes/setting.html',context)
+
+
+
+
+def exem(request):
+
+    user=request.user.profile.id
+   
+    exemFormSet=inlineformset_factory(Bolim,Exemple,fields=('fiz','name',),extra=3)
+    bolim=Bolim.objects.get(id=1)
+    formset=exemFormSet(queryset=Exemple.objects.none(),instance=bolim)
+    
+    
+    if request.method == "POST":
+        form=exemFormSet(request.POST,instance=bolim)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    
+    
+    
+    
+    context={"formset":formset}
+    return render(request,'homes/exemple.html',context)
+
