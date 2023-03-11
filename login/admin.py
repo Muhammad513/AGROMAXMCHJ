@@ -12,4 +12,4 @@ class ProfileAdmin(admin.ModelAdmin):
 
 admin.site.register(Profile,ProfileAdmin)    
 
-admin.site.register([Shtat,Bolim,Exemple,Fizlitsa])
+admin.site.register([Shtat,Bolim,Exemple,Fizlitsa,Narxnoma])

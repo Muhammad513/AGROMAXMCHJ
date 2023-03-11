@@ -3,7 +3,7 @@
 {% csrf_token %}
 {{formset.management_form}}
 {% for form in formset %}
-{{form.as_p}}
+{{form.fiz}}
 <hr>
 {% endfor %}
 <input type="submit" value="ok">

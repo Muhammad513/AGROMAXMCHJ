@@ -38,13 +38,24 @@ class Fizlitsa(models.Model):
 class Exemple(models.Model):
     fiz=models.ForeignKey('Fizlitsa',on_delete=models.PROTECT)
     bolim=models.ForeignKey('bolim',on_delete=models.PROTECT)
-    name=models.CharField(max_length=20,null=True)
+    narxnoma=models.ForeignKey('narxnoma',on_delete=models.PROTECT,null=True)
+    miqdor=models.FloatField(null=True)
+    summa=models.FloatField(null=True)
     
     def __str__(self):
         return str(self.fiz)
 
+    def save(self,*args,**kwargs):
+        self.summa=round((self.narxnoma.narxi*self.miqdor),1)
+        super().save(*args,**kwargs)
 
 
+class Narxnoma(models.Model):
+    nomi=models.CharField(max_length=20)
+    narxi=models.FloatField()
+
+    def __str__(self):
+        return str(self.nomi)
 
       
 

@@ -47,7 +47,7 @@ def exem(request):
 
     user=request.user.profile.id
    
-    exemFormSet=inlineformset_factory(Bolim,Exemple,fields=('fiz','name',),extra=3)
+    exemFormSet=inlineformset_factory(Bolim,Exemple,fields=('fiz','miqdor','narxnoma',),extra=3)
     bolim=Bolim.objects.get(id=1)
     formset=exemFormSet(queryset=Exemple.objects.none(),instance=bolim)
     
