@@ -24,10 +24,11 @@ class Bolim(models.Model):
 
 
     def __str__(self):
-        return str(self.name)
+        return str(self.id)
     
 
 class Fizlitsa(models.Model):
+    bolim=models.ForeignKey('bolim',on_delete=models.PROTECT,null=True)
     fname=models.CharField(max_length=20)
     lname=models.CharField(max_length=20)
     oname=models.CharField(max_length=20)
@@ -77,11 +78,11 @@ class Oylar(models.Model):
 
 class Naryad(models.Model):
     bolim=models.ForeignKey('bolim',on_delete=models.PROTECT,null=True)
-    oylar=models.ForeignKey('Oylar',on_delete=models.PROTECT)
-    hodim=models.ForeignKey('Qabul',on_delete=models.PROTECT)
-    narxnoma=models.ForeignKey('Narxnoma',on_delete=models.PROTECT)
-    miqdor=models.FloatField()
-    summa=models.FloatField(blank=True)
+    oy=models.ForeignKey('Oylar',on_delete=models.PROTECT,null=True)
+    hodim=models.ForeignKey('Fizlitsa',on_delete=models.PROTECT,null=True)
+    narxnoma=models.ForeignKey('Narxnoma',on_delete=models.PROTECT,null=True)
+    miqdor=models.FloatField(null=True)
+    summa=models.FloatField(null=True)
 
     def __str__(self):
         return str(self.hodim)

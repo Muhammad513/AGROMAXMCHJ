@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from .form import ProfileForm,ExempleForm
+from .form import ProfileForm,NaryadForm
 from .models import*
 from django.forms import inlineformset_factory,modelformset_factory
 # Create your views here.
@@ -45,30 +45,15 @@ def setting(request):
 
 def bolim(request):
     user=request.user.profile.id
+    bolims=Bolim.objects.get(id=4)
     
-    bolim=Bolim.objects.all()
+    formset=modelformset_factory(Naryad,form=NaryadForm(),extra=4)
     
-    
-    
-    
-    context={"bolim":bolim}
+       
+    context={"formset":formset}
     return render(request,'homes/exemple.html',context)
 
 def naryad(request,pk):
-    user=request.user.profile.id
-    exemFormSet=inlineformset_factory(Bolim,Naryad,fields=('oylar','hodim','narxnoma','miqdor','summa',),extra=3)
-    bolim=Bolim.objects.get(id=pk)
-    formsets=exemFormSet(queryset=Naryad.objects.none(),instance=bolim)
     
     
-    if request.method == "POST":
-        form=exemFormSet(request.POST,instance=bolim)
-        print(form)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-    
-    
-    
-    context={"formsets":formsets}
-    return render(request,'homes/formset.html',context)
+    return render(request,'homes/formset.html')

@@ -4,16 +4,58 @@
       
         <thead>
           <tr style="line-height: 17px;">
-            <th >БУЛИМЛАР</th>
-           
+            <th>№</th>
+            <th>Ф И О</th>
+            
+            <th>1-Иш тури</th>
+            <th>микдор</th>
+            <th>Сумма</th>
+            
+            <th>2-Иш тури</th>
+            <th>микдор</th>
+            <th>Сумма</th>
+            
+            <th>3-Иш тури</th>
+            <th>микдор</th>
+            <th>Сумма</th>
+            
+            <th>4-Иш тури</th>
+            <th>микдор</th>
+            <th>Сумма</th>
+            
+            <th>5-Иш тури</th>
+            <th>микдор</th>
+            <th>Сумма</th>
+            
+            <th>6-Иш тури</th>
+            <th>микдор</th>
+            <th>Сумма</th>
+            
+            <th>7-Иш тури</th>
+            <th>микдор</th>
+            <th>Сумма</th>
+            <th>7-Иш тури</th>
+            <th>микдор</th>
+            <th>Сумма</th>
         </tr>
+         
         </thead>
         <tbody>
-        {% for i in bolim %}
-        <tr>
-            <td><a href="{% url 'bolim' i.id %}">{{i.name}}</a></td>
-        </tr>
-        {% endfor %}  
+          <form action="" method="post">
+            {% for form in formset %}
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td><div class="ui form">
+                <div class="field">
+                  {{form.hodim}}
+                </div>
+              </div></td>
+            </tr>
+            {% endfor %}
+          </form>
+            
+        
+        
         </tbody>
     </table>
     </div>

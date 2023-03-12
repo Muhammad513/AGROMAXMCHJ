@@ -21,11 +21,14 @@ class ProfileForm(forms.ModelForm):
             return photo
 
 
-class ExempleForm(forms.ModelForm):
-
-
+class NaryadForm(forms.ModelForm):
+    
     class Meta:
+        model=Naryad
+        fields='__all__'    
         
-        fields='__all__'
 
+    def __init__(self,bolms,*args,**kwargs):
+        super (NaryadForm,self ).__init__(*args,**kwargs) # populates the post
+        self.fields['hodim'].queryset = Fizlitsa.objects.filter(bolim=bolms)
 
