@@ -1,11 +1,13 @@
-<form action="" method="post">
+{% extends 'homes/dashboard.html' %}
 
-{% csrf_token %}
-{{formset.management_form}}
-{% for form in formset %}
-{{form.fiz}}
-<hr>
-{% endfor %}
-<input type="submit" value="ok">
+{% block content %}
+<main class="app-content">
+    <div class="app-title">
+    
+        {% include 'homes/bolim-inc.html' %}
+    
+    </div>
+</main>  
 
-</form>
+
+{% endblock %}

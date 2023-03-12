@@ -1,0 +1,19 @@
+<div class="table-responsive">
+
+    <table id="br1" class="table-bordered table table-sm  text-center  table-hover ">
+      
+        <thead>
+          <tr style="line-height: 17px;">
+            <th >БУЛИМЛАР</th>
+           
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in bolim %}
+        <tr>
+            <td><a href="{% url 'bolim' i.id %}">{{i.name}}</a></td>
+        </tr>
+        {% endfor %}  
+        </tbody>
+    </table>
+    </div>

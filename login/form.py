@@ -25,7 +25,7 @@ class ExempleForm(forms.ModelForm):
 
 
     class Meta:
-        model=Exemple
+        
         fields='__all__'
 
 

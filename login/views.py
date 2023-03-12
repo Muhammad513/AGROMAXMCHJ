@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .form import ProfileForm,ExempleForm
 from .models import*
-from django.forms import inlineformset_factory
+from django.forms import inlineformset_factory,modelformset_factory
 # Create your views here.
 
 def loginPage(request):
@@ -43,24 +43,32 @@ def setting(request):
 
 
 
-def exem(request):
-
+def bolim(request):
     user=request.user.profile.id
-   
-    exemFormSet=inlineformset_factory(Bolim,Exemple,fields=('fiz','miqdor','narxnoma',),extra=3)
-    bolim=Bolim.objects.get(id=1)
-    formset=exemFormSet(queryset=Exemple.objects.none(),instance=bolim)
+    
+    bolim=Bolim.objects.all()
+    
+    
+    
+    
+    context={"bolim":bolim}
+    return render(request,'homes/exemple.html',context)
+
+def naryad(request,pk):
+    user=request.user.profile.id
+    exemFormSet=inlineformset_factory(Bolim,Naryad,fields=('oylar','hodim','narxnoma','miqdor','summa',),extra=3)
+    bolim=Bolim.objects.get(id=pk)
+    formsets=exemFormSet(queryset=Naryad.objects.none(),instance=bolim)
     
     
     if request.method == "POST":
         form=exemFormSet(request.POST,instance=bolim)
+        print(form)
         if form.is_valid():
             form.save()
             return redirect('/')
     
     
     
-    
-    context={"formset":formset}
-    return render(request,'homes/exemple.html',context)
-
+    context={"formsets":formsets}
+    return render(request,'homes/formset.html',context)
