@@ -28,7 +28,4 @@ class NaryadForm(forms.ModelForm):
         fields='__all__'    
         
 
-    def __init__(self,bolms,*args,**kwargs):
-        super (NaryadForm,self ).__init__(*args,**kwargs) # populates the post
-        self.fields['hodim'].queryset = Fizlitsa.objects.filter(bolim=bolms)
-
+  

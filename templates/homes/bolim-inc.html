@@ -3,41 +3,26 @@
     <table id="br1" class="table-bordered table table-sm  text-center  table-hover ">
       
         <thead>
+          
           <tr style="line-height: 17px;">
-            <th>№</th>
-            <th>Ф И О</th>
-            
-            <th>1-Иш тури</th>
-            <th>микдор</th>
-            <th>Сумма</th>
-            
-            <th>2-Иш тури</th>
-            <th>микдор</th>
-            <th>Сумма</th>
-            
-            <th>3-Иш тури</th>
-            <th>микдор</th>
-            <th>Сумма</th>
-            
-            <th>4-Иш тури</th>
-            <th>микдор</th>
-            <th>Сумма</th>
-            
-            <th>5-Иш тури</th>
-            <th>микдор</th>
-            <th>Сумма</th>
-            
-            <th>6-Иш тури</th>
-            <th>микдор</th>
-            <th>Сумма</th>
-            
-            <th>7-Иш тури</th>
-            <th>микдор</th>
-            <th>Сумма</th>
-            <th>7-Иш тури</th>
-            <th>микдор</th>
-            <th>Сумма</th>
-        </tr>
+            <th rowspan="3">№</th>
+            <th rowspan="3">Ф И О</th>
+            {% for form in formset %}
+            <th>{{forloop.counter}}-Иш тури</th>
+            {% endfor %}
+          </tr>
+          <tr>
+            {% for form in formset %}
+            <th>
+              {{form.narxnoma}}
+            </th>
+            {% endfor %}
+          </tr>
+          <tr>
+            {% for form in formset %}
+              <th>МИКДОР</th>
+            {% endfor %}
+          </tr>
          
         </thead>
         <tbody>
@@ -45,12 +30,42 @@
             {% for form in formset %}
             <tr>
               <td>{{forloop.counter}}</td>
-              <td><div class="ui form">
-                <div class="field">
-                  {{form.hodim}}
+              <td>
+                <div class="ui form">
+                  <div class="field">
+                    {{form.hodim}}
+                  </div>
                 </div>
-              </div></td>
-            </tr>
+              </td>
+              <td>
+                <div class="ui form">
+                  <div class="field">
+                    {{form.miqdor}}
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui form">
+                  <div class="field">
+                    {{form.miqdor}}
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui form">
+                  <div class="field">
+                    {{form.miqdor}}
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui form">
+                  <div class="field">
+                    {{form.miqdor}}
+                  </div>
+                </div>
+              </td>
+             
             {% endfor %}
           </form>
             

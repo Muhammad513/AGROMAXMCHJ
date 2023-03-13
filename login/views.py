@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .form import ProfileForm,NaryadForm
 from .models import*
-from django.forms import inlineformset_factory,modelformset_factory
+from django.forms import formset_factory,modelformset_factory
 # Create your views here.
 
 def loginPage(request):
@@ -45,9 +45,9 @@ def setting(request):
 
 def bolim(request):
     user=request.user.profile.id
-    bolims=Bolim.objects.get(id=4)
+        
+    formset=formset_factory(NaryadForm,extra=9)
     
-    formset=modelformset_factory(Naryad,form=NaryadForm(),extra=4)
     
        
     context={"formset":formset}
